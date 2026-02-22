@@ -3,11 +3,10 @@ FROM python:3.11-slim
 RUN useradd -m -u 1000 user
 USER user
 
-ARG APP_PORT=7433
 ENV HOME=/home/user \
-    PATH=/home/user/.local/bin:$PATH \
-    APP_PORT=$APP_PORT
+    PATH=/home/user/.local/bin:$PATH
 
+ENV APP_PORT=7433
 WORKDIR $HOME/app
 
 COPY --chown=user requirements.txt .
